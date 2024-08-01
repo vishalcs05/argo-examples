@@ -14,7 +14,7 @@ spec:
     metadata:
       labels:
         app: {{ .Values.appName }}
-        tier: frontend
+        tier: fend
     spec: # Pod spec
       containers:
       - name: mycontainer
