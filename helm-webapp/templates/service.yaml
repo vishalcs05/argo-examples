@@ -11,5 +11,5 @@ spec:
     name: flask
   selector:
     app: {{ .Values.appName }}
-    tier: frontend
+    tier: fend
   type: NodePort
