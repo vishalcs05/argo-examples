@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1               
+kind: Rollout
+metadata:
+  name: {{ .Values.appName }}
+spec:
+  replicas: {{ .Values.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.appName }}
+      tier: frontend
+  workloadRef:                                 
+    apiVersion: apps/v1
+    kind: Deployment
+    name: {{ .Values.appName }}
+    scaleDown: onsuccess
+  strategy:
+    canary:
+      steps:
+        - setWeight: 20
+        - pause: {duration: 60s}
