@@ -7,7 +7,7 @@ spec:
   selector:
     matchLabels:
       app: {{ .Values.appName }}
-      tier: fend
+      tier: frontend
   workloadRef:                                 
     apiVersion: apps/v1
     kind: Deployment
